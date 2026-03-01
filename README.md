@@ -30,7 +30,7 @@ Traditional bridges move money, which is slow and vulnerable. Our Agentic Bridge
 
 🔗 **Key Chainlink Services Used**
 Service	Role in Sentinel
-Chainlink Functions (CRE-Powered)	The primary CRE product: reaches into the mock bank’s REST API, fetches private data, and triggers ZKP generation. It’s the “auditor” that brings real-world data on-chain.
+**Chainlink Functions (CRE-Powered) The primary CRE product:** reaches into the mock bank’s REST API, fetches private data, and triggers ZKP generation. It’s the “auditor” that brings real-world data on-chain.
 Chainlink CCIP	The secure transport layer that carries the compliance attestation (ZKP hash) from the source chain to the destination firewall.
 Chainlink Data Feeds	Provides real-time pricing (e.g., ETH/USD) to evaluate threshold rules like “balance > 100 ETH” in fiat-equivalent terms.
 Chainlink Proof of Reserve (PoR)	Ensures the escrow vault is always 1:1 backed by institutional funds, adding a transparency layer for regulators.
@@ -175,6 +175,5 @@ The CRE agent can run continuously, listening for events and executing complex w
 Our Agentic Compliance Bridge is a living example of what CRE enables: a hybrid smart contract that combines the transparency of blockchain with the privacy and computational power of off‑chain agents.
 
 
-📜 **License**
-MIT — Dedicated to the Chainlink Convergence 2026 Hackathon.
-=======
+📜 License
+MIT — Dedicated to the Chainlink Convergence 2026 Hackathon
