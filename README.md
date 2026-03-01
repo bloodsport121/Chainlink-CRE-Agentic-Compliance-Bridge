@@ -41,7 +41,8 @@ All these services are orchestrated by our CRE Agent, which runs in Chainlink’
 🏛️ Architecture: The Agentic CRE Core
 The Sentinel is not a simple bot; it is a Customized Runtime Environment Agent. It operates off‑chain, performing the “hard logic” (ZKP generation, bank API calls) that is too private or expensive for the blockchain.
 
-[User]  --(1) send funds-->  [Institutional Escrow (Source Chain)]
+```plaintext
+[User] --(1) send funds--> [Institutional Escrow (Source Chain)]
                                       |
                                       | (2) locked
                                       v
@@ -71,9 +72,8 @@ The Sentinel is not a simple bot; it is a Customized Runtime Environment Agent. 
                                                                       |
                                                                       | (10) releaseFunds()
                                                                       v
-                      
-
-
+                                                           [Recipient Wallet on Dest Chain]
+```
 
 
 
