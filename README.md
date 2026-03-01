@@ -2,9 +2,9 @@
 description: 
 ---
 
-Chainlink Sentinel: The Agentic Compliance Bridge 
-Hackathon: Chainlink Convergence (Feb 2026)
-Status: Live Demo Ready | Core Innovation: Dynamic Compliance Firewall powered by Chainlink CRE
+# Chainlink Sentinel: The Agentic Compliance Bridge 
+**Hackathon:** Chainlink Convergence (Feb 2026)  
+**Main Skill & Demo** - Dynamic Compliance Firewall powered by Chainlink CRE
 
 🧭 Overview
 The Agentic Compliance Bridge is a privacy-preserving, cross-chain compliance bridge that enables institutions to safely enter DeFi. It solves the core problem: Institutions want to use DeFi, but they cannot risk interacting with non-compliant liquidity.
@@ -24,7 +24,7 @@ The proof is ferried cross-chain using Chainlink CCIP to the destination chain (
 
 The Dynamic Compliance Firewall on the destination chain verifies the ZKP. If valid, it opens the gate.
 
-The agent triggers atomic settlement: funds are released from escrow to the user’s wallet on the destination chain.
+The Agentic Bridge triggers atomic settlement: funds are released from escrow to the user’s wallet on the destination chain.
 
 Traditional bridges move money, which is slow and vulnerable. Our Agentic Bridge moves compliance proofs, enabling instant settlement of assets already secured on the destination chain.
 
@@ -76,7 +76,7 @@ The Sentinel is not a simple bot; it is a Customized Runtime Environment Agent. 
 
 
 
-The CRE Agent (implemented in sentinel-rest/) is the brain. It uses Chainlink Functions to fetch bank data, generates the ZKP locally, and initiates the CCIP message. This architecture ensures that private data never leaves the agent’s secure off‑chain environment.
+The Agentic Compliance Bridge (implemented in sentinel-rest/) is the Ai Agent brain. It uses Chainlink Functions to fetch bank data, generates the ZKP locally, and initiates the CCIP message. This architecture ensures that private data never leaves the agent’s secure off‑chain environment.
 
 🎯 Hackathon Centerpiece: The Dynamic Compliance Firewall
 This skill is the heart of our submission. It’s a smart gateway that remains 🔒 LOCKED until it receives a valid, cross‑chain compliance attestation.
