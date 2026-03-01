@@ -2,12 +2,9 @@
 
 ## Intro Slide Video
 
-Narrative: Institutions want to use Defi, but they cant risk interacting with non compliant liquidity. Our Agentic Compliance Bridge solves this by deploying a custom built skill called Dynamic Compliance Firewall, where Zero Knowledge Proofs and CCIP are used to create a privacy-preserving 'Compliance Firewall' that will only release a transaction from Escrow into the compliant defi environment if it is cryptographically proven to be a compliant transaction. 
+Narrative: Institutions want to use Defi, but they cant risk interacting with non compliant liquidity. Our Agentic Compliance Bridge solves this by deploying a custom-built skill called Dynamic Compliance Firewall, where Zero Knowledge Proofs and CCIP are used to create a privacy-preserving 'Compliance Firewall' that will only release a transaction from Escrow into the compliant defi environment if it is cryptographically proven to be a compliant transaction. 
 
-Chainlink CRE in the Agentic Compliance Bridge:
-In the Chainlink ecosystem, the CRE is the runtime that allows off-chain agents to perform complex, private computations and then report back to the blockchain.
-
-Our Agentic Compliance Bridge (via API in Terminal 2) is a Customized Runtime Environment Agent. It handles the hard logic, like ZKP generation and Bank API calls, that cannot be done on-chain due to privacy and gas costs.
+The Chainlink Customized Runtime Environment (CRE) powers our Agentic Compliance Bridge (via API in Terminal 2) by enabling it to operate as an off-chain agent. This allows the bridge to handle private, complex logic such as ZKP generation and bank API audits—that cannot be performed directly on the blockchain.
 
 Chainlink Functions is the primary product powered by the CRE. It allows the Compliance Bridge to reach out to the real world (The Mock Bank), verify data, and pull that attestation back into our smart contracts.
 
