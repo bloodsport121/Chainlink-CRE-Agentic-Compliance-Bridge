@@ -29,13 +29,16 @@ The Agentic Bridge triggers atomic settlement: funds are released from escrow to
 Traditional bridges move money, which is slow and vulnerable. Our Agentic Bridge moves compliance proofs, enabling instant settlement of assets already secured on the destination chain.
 
 🔗 **Key Chainlink Services Used**
-Service	Role in Sentinel
-**Chainlink Functions (CRE-Powered) The primary CRE product:** reaches into the mock bank’s REST API, fetches private data, and triggers ZKP generation. It’s the “auditor” that brings real-world data on-chain.
-Chainlink CCIP	The secure transport layer that carries the compliance attestation (ZKP hash) from the source chain to the destination firewall.
-Chainlink Data Feeds	Provides real-time pricing (e.g., ETH/USD) to evaluate threshold rules like “balance > 100 ETH” in fiat-equivalent terms.
-Chainlink Proof of Reserve (PoR)	Ensures the escrow vault is always 1:1 backed by institutional funds, adding a transparency layer for regulators.
-Chainlink VRF	Can be used for randomized spot‑check audits, adding an extra layer of regulatory oversight for institutional participants.
-All these services are orchestrated by our CRE Agent, which runs in Chainlink’s Customized Runtime Environment—the off‑chain compute layer that handles private logic and expensive computations.
+
+| Service | Role in Sentinel |
+|---------|------------------|
+| **Chainlink Functions (CRE-Powered)** | The primary CRE product: reaches into the mock bank’s REST API, fetches private data, and triggers ZKP generation. It’s the “auditor” that brings real-world data on-chain. |
+| **Chainlink CCIP** | The secure transport layer that carries the compliance attestation (ZKP hash) from the source chain to the destination firewall. |
+| **Chainlink Data Feeds** | Provides real-time pricing (e.g., ETH/USD) to evaluate threshold rules like “balance > 100 ETH” in fiat-equivalent terms. |
+| **Chainlink Proof of Reserve (PoR)** | Ensures the escrow vault is always 1:1 backed by institutional funds, adding a transparency layer for regulators. |
+| **Chainlink VRF** | Can be used for randomized spot‑check audits, adding an extra layer of regulatory oversight for institutional participants. |
+
+All these services are orchestrated by our **CRE Agent**, which runs in Chainlink’s Customized Runtime Environment—the off‑chain compute layer that handles private logic and expensive computations.
 
 🏛️ **Architecture: The Agentic CRE Core**
 The Sentinel is not a simple bot; it is a Customized Runtime Environment Agent. It operates off‑chain, performing the “hard logic” (ZKP generation, bank API calls) that is too private or expensive for the blockchain.
