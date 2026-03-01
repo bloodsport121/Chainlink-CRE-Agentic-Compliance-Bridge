@@ -1,0 +1,154 @@
+{
+    "name": "Sentinel Alert Handler",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "attestation-alert",
+                "options": {}
+            },
+            "name": "Tenderly Webhook",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "method": "POST",
+                "url": "={{ $env.SENTINEL_REST_URL }}/send-ccip",
+                "sendQuery": true,
+                "queryParameters": {
+                    "parameters": [
+                        {
+                            "name": "simulate",
+                            "value": "true"
+                        }
+                    ]
+                },
+                "sendBody": true,
+                "bodyParameters": {
+                    "parameters": [
+                        {
+                            "name": "proofHash",
+                            "value": "={{ $json.body.event.params.proofHash }}"
+                        },
+                        {
+                            "name": "user",
+                            "value": "={{ $json.body.event.params.user }}"
+                        },
+                        {
+                            "name": "asset",
+                            "value": "={{ $json.body.event.params.asset }}"
+                        },
+                        {
+                            "name": "expiry",
+                            "value": "={{ $json.body.event.params.expiry }}"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "name": "Simulate Send CCIP",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.1,
+            "position": [
+                460,
+                300
+            ],
+            "continueOnFail": true
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "boolean": [
+                        {
+                            "value1": "={{ $json.simulated }}",
+                            "value2": true
+                        }
+                    ]
+                }
+            },
+            "name": "If Simulation Success",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 1,
+            "position": [
+                680,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "method": "POST",
+                "url": "={{ $env.SENTINEL_REST_URL }}/send-ccip",
+                "sendBody": true,
+                "bodyParameters": {
+                    "parameters": [
+                        {
+                            "name": "proofHash",
+                            "value": "={{ $('Tenderly Webhook').item.json.body.event.params.proofHash }}"
+                        },
+                        {
+                            "name": "user",
+                            "value": "={{ $('Tenderly Webhook').item.json.body.event.params.user }}"
+                        },
+                        {
+                            "name": "asset",
+                            "value": "={{ $('Tenderly Webhook').item.json.body.event.params.asset }}"
+                        },
+                        {
+                            "name": "expiry",
+                            "value": "={{ $('Tenderly Webhook').item.json.body.event.params.expiry }}"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "name": "Actual Send CCIP",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.1,
+            "position": [
+                900,
+                200
+            ]
+        }
+    ],
+    "connections": {
+        "Tenderly Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Simulate Send CCIP",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Simulate Send CCIP": {
+            "main": [
+                [
+                    {
+                        "node": "If Simulation Success",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "If Simulation Success": {
+            "main": [
+                [
+                    {
+                        "node": "Actual Send CCIP",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "settings": {}
+}

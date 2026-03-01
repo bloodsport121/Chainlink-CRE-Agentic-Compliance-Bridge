@@ -1,0 +1,46 @@
+# Standard Node.js ignore
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Hardhat/Foundry/Truffle build artifacts
+artifacts/
+cache/
+typechain-types/
+out/
+
+# Local Environment & Secrets (CRITICAL: DO NOT REMOVE)
+.env
+.env.*
+!.env.template
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# ZKP / Circom Artifacts (Local proof data)
+*.ptau
+*.zkey
+*.vkey
+# Keep the circuits themselves, but ignore generated wasm/js if preferred
+# build/ is already ignored below, which covers local ZK builds
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build and coverage
+build/
+dist/
+coverage/
+*.lcov
+
+# Local logs
+*.log
+dynamic-compliance-firewall/compile.log

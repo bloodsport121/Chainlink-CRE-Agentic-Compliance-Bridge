@@ -1,0 +1,94 @@
+{
+    "name": "Sentinel Trigger Workflow",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "start-compliance",
+                "options": {}
+            },
+            "name": "Webhook",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "method": "POST",
+                "url": "={{ $env.SENTINEL_REST_URL }}/trigger",
+                "sendBody": true,
+                "bodyParameters": {
+                    "parameters": [
+                        {
+                            "name": "credential",
+                            "value": "={{ $json.body.credential }}"
+                        },
+                        {
+                            "name": "destinationAddress",
+                            "value": "={{ $json.body.destinationAddress }}"
+                        },
+                        {
+                            "name": "asset",
+                            "value": "={{ $json.body.asset }}"
+                        },
+                        {
+                            "name": "amount",
+                            "value": "={{ $json.body.amount }}"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "name": "Sentinel Trigger",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.1,
+            "position": [
+                460,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "options": {
+                    "responseCode": 200,
+                    "responseBody": "={{ $json }}"
+                }
+            },
+            "name": "Respond to Webhook",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1,
+            "position": [
+                680,
+                300
+            ]
+        }
+    ],
+    "connections": {
+        "Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Sentinel Trigger",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Sentinel Trigger": {
+            "main": [
+                [
+                    {
+                        "node": "Respond to Webhook",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "settings": {}
+}
