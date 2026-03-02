@@ -4,35 +4,22 @@
 
 (Narrative): Institutions are ready for DeFi, but they are currently paralyzed by the risk of non-compliant liquidity. We solve this with the Agentic Compliance Bridge—a privacy-preserving 'Compliance Firewall' that ensures only cryptographically proven actors enter the pool.
 
-The Dynamic Compliance Firewall acts as an automated institutional gatekeeper that vaults funds from non-compliant users in a secure escrow, releasing them only after privacy-preserving Zero-Knowledge Proofs (ZKPs) are securely ferried via Chainlink CCIP to mathematically guarantee a legally compliant cross-chain environment.
+The Dynamic Compliance Firewall skill acts as an automated gatekeeper, vaulting funds from non-compliant users and releasing them only after ZKPs are securely ferried via Chainlink CCIP to guarantee a legally compliant cross-chain environment. This dual-layer system uses an off-chain Agentic Brain to audit private bank APIs and on-chain Guards to secure an Escrow Vault—locking 10 ETH on the source chain and triggering atomic release only when a ZKP mathematically proves the user meets our 100 ETH wealth and US residency requirements. This is what we will walk through in today's demo
 
-The Chainlink Customized Runtime Environment (CRE) enables our Agentic Compliance Bridge (via API in Terminal 2) to operate as an off-chain agent. This allows the bridge to handle private, complex logic such as ZKP generation and bank API audits—that cannot be performed directly on the blockchain.
-
-Chainlink Functions is the primary product powered by the CRE. It allows the Compliance Bridge to reach out to the real world (Mock Bank), verify data, and pull that attestation back into our smart contracts.
-
-Our Agentic Compliance Bridge functions as a dual-layer "Compliance Firewall," utilizing an off-chain Agentic Brain to audit private bank APIs and on-chain Guards to secure a local Escrow Vault. Instead of a risky asset bridge, we lock 10 ETH on the source chain and only trigger an atomic release once a ZKP mathematically proves the user meets our 100 ETH wealth and US residency requirements.
+The Chainlink Runtime Environment enables our Agentic Compliance Bridge to operate off-chain, handling private logic like ZKP generation and bank API audits that cannot be performed on-chain, while Chainlink Functions verifies real-world data (Mock Bank) and pulls attestations into our smart contracts to ensure only verified actors enter the pool.
 
 
 ## Desktop Video - Explain Layout
 
-So on the left side over here we have our Mock Financial Institution - this bank has its customer's Personally Identifiable Information
-As you can see it shows Balance: 200 Ethereum, in Jurisdiction: 840, which is the United States.
+On the left is our Mock Bank holding sensitive PII: a 200 ETH balance in Jurisdiction 840 (USA). This data must remain private but be cryptographically proven for the transaction to proceed. On the right is our Agentic Bridge API, the orchestrator that generates the ZKPs and manages the Chainlink CCIP handshake.
 
-This is private information that we cannot allow to be posted to public visibility but must also be proven true for the transaction to be allowed.
+On the far right, we have the Bridge API orchestrating ZKPs and CCIP across three terminals.
 
-The financial institution managing the compliant liquidity pool can set whatever requirements they need in order to only allow Liquidity Providers who are compliant actors within the legal jurisdiction. 
+Terminal 1 simulates the Trad-Fi bank holding raw PII (200 ETH, USA).
 
+Terminal 2 is the "Agentic Brain" that converts that data into anonymous proofs and triggers the cross-chain atomic settlement.
 
-Now over here on the right side of the Browser here we have the API for the Agentic Compliance Bridge, the Agent that generates Zero Knowledge Proofs & talks to Chainlink CCIP in this demo.
-
-Here on the far right we have our 3 Terminal Windows:
-
-Top Terminal 1 represents a Tradfi institution, bank, or business. It holds the raw Personally Identifiable Information—the user's name, balance (200 ETH), and location (USA).
-
-Mid Terminal 2 is the Agentic Compliance Bridge API that converts traditional bank data into anonymous Zero-Knowledge Proofs. It acts as the orchestrator by initiating the Chainlink CCIP cross-chain message and triggering the final Atomic Settlement on the destination chain once compliance is confirmed. 
-Once mathematically verified, it triggers the local release of pre-positioned funds from a high-security escrow vault, ensuring zero assets are ever exposed in transit.
-
-Bottom Terminal 3 - This is the operator interface. Where we run the simulated transaction to start the proof, move proof data across the compliance bridge into the low fee destination chain where the Defi Environment lives, and release the vault.
+Terminal 3 is our operator interface where we execute the simulation to bridge the data and release the vault.
 
 ## BEGIN DEMO
 
@@ -53,7 +40,7 @@ The Agentic Bridge API in Terminal 2 utilizes SnarkJS as a proving engine to gen
 
 ## Quickly Show the ComplianceGuard.sol code, specifically the verifyProof function
 
-Our Agentic Compliance Bridge uses CCIP to move the ZKP Compliance Proofs, allowing for Instant Atomic Settlement of assets that are already secured on the destination chain.
+There is the verify function for our ZKP and then our Agentic Compliance Bridge uses CCIP to move the ZKP Compliance Proofs, allowing for Instant Atomic Settlement of assets that are already secured on the destination chain.
 
 COMMAND 4- Bridge Transit 
  
@@ -84,18 +71,17 @@ The final command in the demonstration actually moves the money. It tells the Es
 
 You can see in Terminal 2 that the 10 Eth has been released from Escrow to the user's wallet.
 
-Observe the transaction hash in Bottom Terminal 3 confirming the money has official moved from the Locked Escrow into the user's wallet inside the compliant ecosystem.  (success = true)
+Observe the transaction hash in Bottom Terminal 3 confirming the money has been released inside the compliant ecosystem.  
 
+(success = true)
 
 You can now see the user's wallet on the Arbitrum destination chain increase by 10 Eth. 
 Show This: https://dashboard.tenderly.co/CCGrams/project/testnet/5d68632c-3795-41ea-8bbf-8a1d6a3510d8
 
-This verifies that the user's identity is compliant on the high-security of Ethereum, while enabling high-speed, institutionally compliant LP & Yield Farming on top of Arbitrum.
+This verifies that the user's identity is compliant on the high-security of Ethereum, while enabling high-speed, institutionally compliant LP & Yield Farming on Arbitrum.
 
 
-## Ending Slide
-
-Visual: Your "Core Capabilities" slide.
+## Ending Slide - Demonstrated Capabilities
 
 (Narrative): We built our Agentic Compliance Bridge on a Chainlink Customized Runtime Environment (CRE). This off‑chain compute layer hosts our bridge agent, enabling it to ping Chainlink Oracles for data,  generate Zero‑Knowledge proofs, and audit bank data via Chainlink Functions—effectively connecting TradFi's privacy requirements with DeFi's need for transparency.
 
