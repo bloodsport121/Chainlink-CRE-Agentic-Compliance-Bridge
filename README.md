@@ -30,6 +30,7 @@ Traditional bridges move money, which is slow and vulnerable. Our Agentic Bridge
 
 🔗 **Demonstrated Capabilities**
 
+```plaintext
 | CRE Workflows |
 |---------|------------------|
 | Scene Initialization: Reset wallet and secure vault funds. |
@@ -53,7 +54,7 @@ Traditional bridges move money, which is slow and vulnerable. Our Agentic Bridge
 | Ferries cryptographic proofs across chains.|
 | Uses oracle data for valuations.|
 | Automates entire bridge settlement lifecycle.|
-
+```
 
 All these services are orchestrated by our CRE Agentic Bridge, which runs in Chainlink’s Customized Runtime Environment—the off‑chain compute layer that handles private logic and expensive computations.
 
@@ -61,7 +62,6 @@ All these services are orchestrated by our CRE Agentic Bridge, which runs in Cha
 The Agentic Compliance Bridge is a Customized Runtime Environment Agent. It operates off‑chain, performing the “hard logic” (ZKP generation, bank API calls) that is too private or expensive for the blockchain.
 
 ```plaintext
-
 ┌────────┐
 │  USER  │
 └───┬────┘
