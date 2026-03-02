@@ -16,7 +16,7 @@
  * This module simulates that flow for hackathon demonstration.
  * 
  * @module sanctions-oracle
- * @author Sentinel Architect
+ * @author Justin Gramke (jmgramke@gmail.com)
  */
 
 import crypto from 'crypto';

@@ -1,8 +1,9 @@
 ---
-description: 
+description: Bridge Skill Documentation
 ---
 
 # Agentic Compliance Bridge Skill: Dynamic Compliance Firewall
+# Hackathon 2026
 
 **Target Location**: `C:\Users\jmgra\antigravityagents\.agent\workflows\chainlink-sentinel\dynamic-compliance-firewall`
 
@@ -40,10 +41,12 @@ Bridge Relay (simulated CCIP):
 ## 🌉 The "Virtual Bridge" Logic
 Because we are working on **Tenderly Virtual Testnets**, the Chainlink nodes are simulated.
 - **Problem**: CCIP messages stay in the "Outbox" on the source.
-- **Solution**: The `bridge-relay.ts` script acts as our "Local Sentinel Relay." It ferries the ZKP from the source router to the destination firewall, allowing for a 1:1 simulation of production Chainlink behavior.
+- **Solution**: The `bridge-relay.ts` script acts as our "Local Bridge Relay." It ferries the ZKP from the source router to the destination firewall, allowing for a 1:1 simulation of production Chainlink behavior.
 
 ## 🛠️ Management Guide
 | File | Role | Change this if
 | `sentinel-rest/.env` | Network Config | You deploy to a new Tenderly Virtual Network. |
 | `mock-bank/index.js` | User Data | You want to test a "Compliance Failure" (set balance < 100). |
-| `scripts/bridge-relay.ts` | The Ferry | You see a "Call Exception" (usually means the destination has no gas). 
+| `scripts/bridge-relay.ts` | The Ferry | You see a "Call Exception" (usually means the destination has no gas).
+
+# Owner: Justin Gramke (jmgramke@gmail.com)

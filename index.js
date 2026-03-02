@@ -7,20 +7,20 @@ import { createDECOAttestation, verifyStealthPass, buildCCIPCompliancePayload } 
 import { screenWallet, generateChainlinkFunctionSource } from './sanctions-oracle.js';
 import { runComplianceReview, generateAICopilotFunctionSource } from './ai-copilot.js';
 
+// 🛡️ AGENTIC COMPLIANCE BRIDGE — Institutional Compliance Layer
+// Owner: Justin Gramke (jmgramke@gmail.com)
 // ═══════════════════════════════════════════════════════════════════
-//  🛡️  CHAINLINK SENTINEL v2.0 — Institutional Compliance Bridge
-// ═══════════════════════════════════════════════════════════════════
-//  MCP Server with 6 compliance tools:
+// MCP Server with 6 compliance tools:
 //    1. check-compliance-policy   (ACE Policy Enforcement)
 //    2. attach-compliance-metadata (CCIP Metadata Persistence)
 //    3. generate-regulatory-report (Automated Reporting)
-//    4. verify-stealth-pass        (DECO ZKP Attestation)     ← NEW
-//    5. screen-sanctions           (OFAC/AML Oracle)           ← NEW
-//    6. ai-compliance-review       (AI Co-Pilot via DeepSeek)  ← NEW
+//    4. verify-stealth-pass        (DECO ZKP Attestation)
+//    5. screen-sanctions           (OFAC/AML Oracle)
+//    6. ai-compliance-review       (AI Co-Pilot via DeepSeek)
 // ═══════════════════════════════════════════════════════════════════
 
 const server = new McpServer({
-    name: "Chainlink-Sentinel",
+    name: "Agentic-Compliance-Bridge",
     version: "2.0.0"
 });
 

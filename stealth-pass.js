@@ -8,12 +8,12 @@
  *   2. DECO node co-signs the TLS session (no server changes needed)
  *   3. A ZK attestation is generated proving compliance status
  *   4. Only the attestation hash is transmitted cross-chain via CCIP
- *   5. The Sentinel verifies the proof on the destination chain
+ *   5. The Agentic Compliance Bridge verifies the proof on the destination chain
  * 
  * Privacy: ZERO PII touches the blockchain. Only boolean proofs.
  * 
  * @module stealth-pass
- * @author Sentinel Architect
+ * @author Justin Gramke (jmgramke@gmail.com)
  */
 
 import crypto from 'crypto';

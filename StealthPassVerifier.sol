@@ -5,7 +5,7 @@ import {Client} from "@chainlink/contracts-ccip/src/v0.8/ccip/libraries/Client.s
 
 /**
  * ═══════════════════════════════════════════════════════════════════
- *  🔐 StealthPassVerifier — On-Chain ZKP Compliance Firewall
+ *  🔐 AgenticComplianceBridge — On-Chain ZKP Compliance Layer
  * ═══════════════════════════════════════════════════════════════════
  * 
  *  This contract sits on the DESTINATION chain and acts as a 
@@ -19,7 +19,7 @@ import {Client} from "@chainlink/contracts-ccip/src/v0.8/ccip/libraries/Client.s
  *    - CCIP (cross-chain message receiver)
  *    - DECO (attestation generation, off-chain)
  *
- *  @author Sentinel Architect
+ *  @author Justin Gramke (jmgramke@gmail.com)
  */
 
 contract StealthPassVerifier {
@@ -27,7 +27,7 @@ contract StealthPassVerifier {
     // ─── STATE ────────────────────────────────────────────────────
 
     address public owner;
-    address public sentinel;  // The Sentinel agent's authorized address
+    address public sentinel;  // The Bridge agent's authorized address
 
     // Attestation registry: hash → attestation metadata
     struct Attestation {
@@ -100,7 +100,7 @@ contract StealthPassVerifier {
 
     /**
      * @notice Register a new DECO attestation on-chain.
-     *         Called by the Sentinel after off-chain DECO verification.
+     *         Called by the Bridge after off-chain DECO verification.
      * 
      * @param _attestationHash The master hash from the DECO attestation
      * @param _entityHash      Hashed entity identifier (no raw PII)

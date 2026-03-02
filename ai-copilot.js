@@ -7,7 +7,7 @@
  * compliance reasoning engine:
  * 
  *   1. High-value CCIP transfer arrives (>$50K threshold)
- *   2. Sentinel triggers Chainlink Function → calls DeepSeek
+ *   2. Bridge Agent triggers Chainlink Function → calls DeepSeek
  *   3. AI analyzes: jurisdiction rules, entity risk, transaction patterns
  *   4. Returns structured risk score + recommendation
  *   5. Agentic Compliance Bridge auto-approves (LOW) or escalates (MEDIUM/HIGH)
@@ -15,7 +15,7 @@
  * 
  * 
  * @module ai-copilot
- * @author Sentinel Architect
+ * @author Justin Gramke (jmgramke@gmail.com)
  */
 
 import http from 'http';

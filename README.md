@@ -2,7 +2,8 @@
 description: 
 ---
 
-# Chainlink Sentinel: The Agentic Compliance Bridge 
+# 🛡️ Agentic Compliance Bridge
+**Owner: Justin Gramke (jmgramke@gmail.com)**
 **Hackathon:** Chainlink Convergence (Feb 2026)  
 **Main Skill & Demo** - Dynamic Compliance Firewall powered by Chainlink CRE
 
@@ -28,25 +29,39 @@ The Agentic Bridge triggers atomic settlement: funds are released from escrow to
 
 Traditional bridges move money, which is slow and vulnerable. Our Agentic Bridge moves compliance proofs, enabling instant settlement of assets already secured on the destination chain.
 
-🔗 **Key Chainlink Services Used**
+🔗 **Demonstrated Capabilities**
 
-| Service | Role in Sentinel |
+| CRE Workflows |
 |---------|------------------|
-| **Chainlink Functions (CRE-Powered)** | The primary CRE product: reaches into the mock bank’s REST API, fetches private data, and triggers ZKP generation. It’s the “auditor” that brings real-world data on-chain. |
-| **Chainlink CCIP** | The secure transport layer that carries the compliance attestation (ZKP hash) from the source chain to the destination firewall. |
-| **Chainlink Data Feeds** | Provides real-time pricing (e.g., ETH/USD) to evaluate threshold rules like “balance > 100 ETH” in fiat-equivalent terms. |
-| **Chainlink Proof of Reserve (PoR)** | Ensures the escrow vault is always 1:1 backed by institutional funds, adding a transparency layer for regulators. |
-| **Chainlink VRF** | Can be used for randomized spot‑check audits, adding an extra layer of regulatory oversight for institutional participants. |
+| Scene Initialization: Reset wallet and secure vault funds. |
+| Institutional Audit: Fetch bank data via Chainlink Functions. |
+| ZKP Origination: Generate anonymous Groth16 Snark Proof.|
+| Cross-Chain Transmission: Ferry ZK-Proof Hash via CCIP.|
+| Firewall Monitoring: Scan destination firewall for OPEN.|
+| Atomic Settlement: Trigger verified institutional fund release.|
+| Sanctions Screening: Perform real-time OFAC/AML wallet audits.|
+ 
+| Agentic Compliance Bridge |
+|---------|------------------|
+| Blocks unauthorized cross-chain asset transfers.|
+| Validates ZK-Proofs natively on Arbitrum.|
+| Receives compliance data via CCIP.|
+| Locks funds until proof verified.|
+| Exposes zero PII to blockchain.|
+| Executes private audits off-chain.|
+| Connects directly to bank APIs.|
+| Generates anonymous ZK-Proofs locally.|
+| Ferries cryptographic proofs across chains.|
+| Uses oracle data for valuations.|
+| Automates entire bridge settlement lifecycle.|
 
-All these services are orchestrated by our **CRE Agent**, which runs in Chainlink’s Customized Runtime Environment—the off‑chain compute layer that handles private logic and expensive computations.
+
+All these services are orchestrated by our CRE Agentic Bridge, which runs in Chainlink’s Customized Runtime Environment—the off‑chain compute layer that handles private logic and expensive computations.
 
 🏛️ **Architecture: The Agentic CRE Core**
-The Sentinel is not a simple bot; it is a Customized Runtime Environment Agent. It operates off‑chain, performing the “hard logic” (ZKP generation, bank API calls) that is too private or expensive for the blockchain.
+The Agentic Compliance Bridge is a Customized Runtime Environment Agent. It operates off‑chain, performing the “hard logic” (ZKP generation, bank API calls) that is too private or expensive for the blockchain.
 
 ```plaintext
-*******************************************************************************
-                            Agentic Compliance Brige
-*******************************************************************************
 
 ┌────────┐
 │  USER  │
@@ -121,7 +136,7 @@ Institutional Escrow Vault: A high‑security vault controlled exclusively by th
 The firewall contract (ComplianceGuard.sol) exposes a verifyProof function that consumes the ZKP and, if valid, toggles the gate to 🔥 OPEN. Once open, the agent can call releaseFunds to settle the transaction.
 
 🤖 **Agentic CRE Workflows**
-The Sentinel manages the bridge lifecycle through four distinct workflows, triggered by human‑to‑agent slash commands (demonstrated in our live demo):
+The Agentic Compliance Bridge manages the deposit clearing process through four distinct workflows, triggered by human‑to‑agent slash commands (demonstrated with NPM Terminal Commands in our live demo):
 
 Workflow	Command	Logic Description
 Origination	/send-ccip	Agent uses Functions to audit bank data and generate the ZKP locally.
@@ -132,9 +147,9 @@ Settlement	/release-funds	Agent triggers the escrow release, completing atomic s
 These workflows are powered by the CRE, which allows the agent to run continuously, react to events, and interact with both off‑chain APIs and on‑chain contracts. We use NPM commands in the Hackathon submission but we have also turned those NPM commands into /commands for our Agentic Compliance Bridge to use when needed.
 
 ```plaintext
-chainlink-sentinel/
+agentic-compliance-bridge/
 ├── dynamic-compliance-firewall/      # 💎 MAIN HACKATHON FEATURE
-│   ├── sentinel-rest/                # 🧠 CRE Agent (Node.js + Express)
+│   ├── sentinel-rest/                # 🧠 Agentic Bridge Agent (Node.js + Express)
 │   │   ├── api/                       # Bank API simulator & ZKP trigger
 │   │   ├── zk-utils/                   # SnarkJS proof generation
 │   │   └── ccip-simulator/              # Relay script for CCIP messages
@@ -151,6 +166,8 @@ chainlink-sentinel/
 └── stealth-pass.js                    # DECO ZKP attestation engine (prototype)
 ```
 
+
+
 🏗️ **Technical Stack**
 ZKP Engine: Circom 2.0 & SnarkJS (Groth16)
 
@@ -165,6 +182,7 @@ Blockchain: Solidity, Ethers.js, Hardhat
 Testing Environment: Tenderly Virtual Testnets (Ethereum & Arbitrum forks)
 
 Frontend (Demo): Simple HTML/JS dashboards for bank and operator
+
 
 🔮 **Why Chainlink CRE?**
 The Customized Runtime Environment is the perfect fit for our agentic bridge because:

@@ -1,9 +1,10 @@
+// Owner: Justin Gramke (jmgramke@gmail.com)
 const { ethers } = require("hardhat");
 const axios = require("axios");
 
 async function main() {
     const [deployer] = await ethers.getSigners();
-    console.log("🌉 Sentinel Bridge Relay: Starting Cross-Chain Transmission...");
+    console.log("🌉 Agentic Compliance Bridge Relay: Starting Cross-Chain Transmission...");
 
     // Ensure account has gas for the virtual bridge relay
     await ethers.provider.send("tenderly_setBalance", [
@@ -17,7 +18,7 @@ async function main() {
     const { balance, jurisdiction } = bankResponse.data;
     console.log(`- Detected CCIP Message from Source: [Balance Proof Required: 100 ETH, Origin: ${jurisdiction}]`);
 
-    // 2. Sentinel API Logic (Re-generating ZKP for the Destination Chain)
+    // 2. Bridge API Logic (Re-generating ZKP for the Destination Chain)
     // We call an internal helper to simulate the bridge "packaging" the proof for Arbitrum
     const sentinelResponse = await axios.post('http://localhost:3007/send-ccip?simulate=true', {});
 

@@ -1,3 +1,4 @@
+// Owner: Justin Gramke (jmgramke@gmail.com)
 const express = require('express');
 const { ethers } = require('ethers');
 const cors = require('cors');
@@ -41,7 +42,7 @@ const ccipSimulatorDest = new ethers.Contract(process.env.CCIP_LOCAL_SIMULATOR_D
 const institutionalEscrow = new ethers.Contract(process.env.INSTITUTIONAL_ESCROW_ADDRESS, INSTITUTIONAL_ESCROW_ABI, walletDest);
 
 app.get('/', (req, res) => {
-    res.json({ status: "Sentinel API (Phase 3) Active on Port 3007", ready: true });
+    res.json({ status: "Bridge API (Phase 3) Active on Port 3007", ready: true });
 });
 
 app.post('/init', async (req, res) => {
@@ -293,4 +294,4 @@ app.post('/release-funds', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Sentinel API on port ${PORT}`));
+app.listen(PORT, () => console.log(`Bridge API on port ${PORT}`));
