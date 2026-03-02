@@ -32,7 +32,7 @@ It shows our recipient wallet address inside the compliant DeFi ecosystem as wel
 
 Phase 2:
 COMMAND 3- The Dual-ZKP Trigger (Attestation & Bridging)
-This command tells the Agentic Compliance Bridge to audit the Mock Bank's credentials, originate the Zero Knowledge Proof via the & broadcast to CCIP.
+This command tells the Agentic Compliance Bridge to audit the Mock Bank's credentials, originate the Zero Knowledge Proof & broadcast to CCIP.
 
 We used the Circom 2.0 compiler to define our private logic, requiring the user to have over 100 ETH and US residency, while ensuring the bank never leaks sensitive PII. 
 
@@ -47,7 +47,7 @@ COMMAND 4- Bridge Transit
 On this virtual testnet, we’ve implemented a Relay Script to simulate the CCIP DON (Decentralized Oracle Network). This allows us to observe the digital attestation moving from the Ethereum 'Outbox' to the Arbitrum 'Firewall' in real-time. 
 
 We can see the transaction on Tenderely Testnet (top transaction) - 
-SHOW THIS:https://dashboard.tenderly.co/CCGrams/project/testnet/6098e35e-85a3-4a4b-8771-f02d5862a259
+## SHOW THIS:https://dashboard.tenderly.co/CCGrams/project/testnet/6098e35e-85a3-4a4b-8771-f02d5862a259
 
 
 ## Result 
@@ -76,7 +76,7 @@ Observe the transaction hash in Bottom Terminal 3 confirming the money has been 
 (success = true)
 
 You can now see the user's wallet on the Arbitrum destination chain increase by 10 Eth. 
-Show This: https://dashboard.tenderly.co/CCGrams/project/testnet/5d68632c-3795-41ea-8bbf-8a1d6a3510d8
+## Show This: https://dashboard.tenderly.co/CCGrams/project/testnet/5d68632c-3795-41ea-8bbf-8a1d6a3510d8
 
 This verifies that the user's identity is compliant on the high-security of Ethereum, while enabling high-speed, institutionally compliant LP & Yield Farming on Arbitrum.
 
