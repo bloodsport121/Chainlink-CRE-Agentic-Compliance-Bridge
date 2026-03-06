@@ -170,8 +170,6 @@ agentic-compliance-bridge/
 └── stealth-pass.js                    # DECO ZKP attestation engine (prototype)
 ```
 
-
-
 🏗️ **Technical Stack**
 ZKP Engine: Circom 2.0 & SnarkJS (Groth16)
 
@@ -183,9 +181,10 @@ Transport: Chainlink CCIP (simulated via relay script)
 
 Blockchain: Solidity, Ethers.js, Hardhat
 
-Testing Environment: Tenderly Virtual Testnets (Ethereum & Arbitrum forks)
-
 Frontend (Demo): Simple HTML/JS dashboards for bank and operator
+
+Testing Environment: Tenderly Virtual Testnets (Ethereum & Arbitrum mainnet  forks)
+-Why Tenderly: We utilized Tenderly Virtual Mainnets to simulate the Agentic Compliance Bridge's Dynamic Compliance Firewall in a production-accurate environment. This allowed for rapid debugging of cross-chain transactions between Ethereum and Arbitrum without the latency of public testnets.
 
 
 🔮 **Why Chainlink CRE?**
