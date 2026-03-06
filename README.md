@@ -198,6 +198,18 @@ The CRE agent can run continuously, listening for events and executing complex w
 
 Our Agentic Compliance Bridge is a living example of what CRE enables: a hybrid smart contract that combines the transparency of blockchain with the privacy and computational power of off‑chain agents.
 
+**Chainlink Code Usage**
+1. Chainlink CCIP: Initiating Cross-Chain Transmission The CRE Agent uses the CCIP Router to send the compliance proof hash.
+   Repo Link: sentinel-rest/index.js (Lines 232-233) https://github.com/AgenticPortfolioX/Chainlink-CRE-Agentic-Compliance-Bridge/blob/main/dynamic-compliance-firewall/sentinel-rest/index.js#L232-L233
+   Code: const tx = await router.ccipSend(destinationChainSelector, message, { gasLimit: 4000000 });
+  
+2. Chainlink CCIP: Receiving the Compliance Attestation The ComplianceGuard contract implements the CCIPReceiver to capture incoming cross-chain messages.
+   Repo Link: contracts/ComplianceGuard.sol (Lines 22-25) https://github.com/AgenticPortfolioX/Chainlink-CRE-Agentic-Compliance-Bridge/blob/main/dynamic-compliance-firewall/contracts/ComplianceGuard.sol#L22-L25
+   Code: function _ccipReceive(Client.Any2EVMMessage memory any2EvmMessage) internal override { ... }
+  
+3. Chainlink Functions: Requesting Off-Chain Bank Status The contract uses the FunctionsClient to trigger the off-chain audit via the decentralized oracle network.
+   Repo Link: contracts/FunctionsConsumer.sol (Lines 40)  https://github.com/AgenticPortfolioX/Chainlink-CRE-Agentic-Compliance-Bridge/blob/main/dynamic-compliance-firewall/contracts/FunctionsConsumer.sol#L40
+   Code: requestId = _sendRequest(req.encodeCBOR(), subscriptionId, gasLimit, donId);
 
 📜 License
 MIT — Dedicated to the Chainlink Convergence 2026 Hackathon
